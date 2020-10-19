@@ -63,6 +63,18 @@ Please also check the Pool & Pool Member (for service coffee).
 If you check the IP addresses on the k8s cluster (kubectl describe pod *[podname]*), you'll see that f5 received POD IPs from the CIS Controller.
 
 
+Test & Scale out Services
+-------------------------
+
+Login to :blue:`client (10.1.10.250)`::
+
+    ubuntu@ip-10-1-1-8:/etc/netplan$ curl http://10.1.10.80
+    Server address: 192.168.43.65:8080
+    Server name: coffee-6567c98884-54qnd
+    Date: 19/Oct/2020:23:48:37 +0000
+    URI: /
+    Request ID: 50f0d53a1d637fba69f3c51ee4039e1e
+
 
 .. toctree::
    :maxdepth: 2
