@@ -16,5 +16,6 @@ If you find any errors/mistakes or want to contribute to the overall quality of 
    :caption: Table of Contents
 
    Lab Setup & Pre Reading <PreWork>
-   Finish the SDN - BGP Set Up <FinishBGP>
+   Finishing BGP Set Up <FinishBGP>
+   Test Calico SDN Networking <FinishBGP-Test>
    Defining Basic k8s ingress <k8s_basic_ingress>
