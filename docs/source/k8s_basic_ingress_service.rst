@@ -36,7 +36,12 @@ Login to :blue:`k8s master (10.1.20.20)`::
 
 Login to :red:`bigip (10.1.10.5)` via TMUI (Web UI).
 
+Please check **[in partition kubernetes]** created services by ingress ressources
 
+.. image:: images/ingress_vs.PNG
+   :width: 800
+   :alt: Ingress Service
+   :align: left
 
 .. toctree::
    :maxdepth: 2
