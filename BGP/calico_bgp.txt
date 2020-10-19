@@ -1,0 +1,20 @@
+cat << EOF | calicoctl create -f -
+ apiVersion: projectcalico.org/v3
+ kind: BGPConfiguration
+ metadata:
+   name: default
+ spec:
+   logSeverityScreen: Info
+   nodeToNodeMeshEnabled: true
+   asNumber: 64512
+EOF
+
+cat << EOF | calicoctl create -f -
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: bgppeer-global-bigip1
+spec:
+  peerIP: 10.1.20.5
+  asNumber: 64512
+EOF
