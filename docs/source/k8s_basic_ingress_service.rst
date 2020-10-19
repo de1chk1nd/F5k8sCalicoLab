@@ -34,6 +34,8 @@ Login to :blue:`k8s master (10.1.20.20)`::
     ingress.extensions/singleingress3 created
 
 
+Login to :red:`bigip (10.1.10.5)` via TMUI (Web UI).
+
 
 
 .. toctree::
