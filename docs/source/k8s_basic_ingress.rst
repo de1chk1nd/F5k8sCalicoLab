@@ -35,21 +35,25 @@ Login to :red:`bigip (10.1.10.5)` via TMUI (Web UI)
 Check if AS3 is installed (iApps > Package Management LX):
 
 .. image:: images/bigip-as3.png
-   :width: 400
-   :alt: Lab Overview
+   :width: 800
+   :alt: AS3 package
    :align: left
 
-Communication from BigIP Controller for Controller Ingress Service is using AS3.
 
+Communication from BigIP Controller for Controller Ingress Service is using AS3.
+In the current lab, we installed **3.19**
 
 Check if basic Partition is installed (Check Partition in the top right):
 
    .. image:: images/bigip-partition.png
-      :width: 400
-      :alt: Lab Overview
+      :width: 800
+      :alt: F5 Partition
       :align: left
 
+
+
 We need to specify a default partition in the controller config - this one must match the local partition.
+We should see partition **kubernetes**
 
 
 
