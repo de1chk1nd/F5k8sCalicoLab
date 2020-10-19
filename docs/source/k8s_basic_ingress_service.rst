@@ -43,5 +43,26 @@ Please check **[in partition kubernetes]** created services by ingress ressource
    :alt: Ingress Service
    :align: left
 
+
+We can see three services - each listening on another IP address.
+
+Please also check the Pool & Pool Member (for service coffee).
+
+.. image:: images/ingress_pool.PNG
+   :width: 800
+   :alt: Ingress Service
+   :align: left
+
+
+.. image:: images/ingress_poolmember.PNG
+   :width: 800
+   :alt: Ingress Service
+   :align: left
+
+
+If you check the IP addresses on the k8s cluster (kubectl describe pod *[podname]*), you'll see that f5 received POD IPs from the CIS Controller.
+
+
+
 .. toctree::
    :maxdepth: 2
