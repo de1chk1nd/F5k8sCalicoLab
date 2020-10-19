@@ -94,6 +94,13 @@ Login to imish and check BGP Peering and BGP Routes::
     show ip bgp neighbors
 
 
+
+.. warning::
+
+   Ensure that you are in "bash", when starting the imish (NOT tmsh)
+
+
+
 Check for :red:`BGP state = Established` in the output for each member in the response::
 
     BGP neighbor is 10.1.20.20, remote AS 64512, local AS 64512, internal link
