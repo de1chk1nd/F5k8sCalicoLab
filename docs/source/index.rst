@@ -18,4 +18,5 @@ If you find any errors/mistakes or want to contribute to the overall quality of 
    Lab Setup & Pre Reading <PreWork>
    Finishing BGP Set Up <FinishBGP>
    Test Calico SDN Networking <FinishBGP-Test>
-   Defining Basic k8s ingress <k8s_basic_ingress>
+   Preparing for basic k8s ingress <k8s_basic_ingress>
+   Creating k8s basic ingress <k8s_basic_ingress_service>
