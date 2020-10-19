@@ -24,7 +24,7 @@ data:
                     "ingress2": {
                         "class": "Service_HTTP",
                         "virtualAddresses": [
-                            "10.192.75.102"
+                            "10.1.10.84"
                         ],
                         "pool": "web_pool2"
                     },
