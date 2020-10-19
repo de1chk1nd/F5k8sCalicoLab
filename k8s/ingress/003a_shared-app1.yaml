@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+ name: singleingress4
+ namespace: default
+ annotations:
+ # See the k8s-bigip-ctlr documentation for information about
+ # all Ingress Annotations
+ # https://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest/#supported-ingress-annotations
+   virtual-server.f5.com/ip: "controller-default"
+   virtual-server.f5.com/http-port: "8080"
+   virtual-server.f5.com/partition: "kubernetes_AS3"
+   virtual-server.f5.com/health: '[{"path": "www.app1.com/", "send": "HTTP GET /", "interval": 5, "timeout": 10}]'
+spec:
+  rules:
+  - host: www.app1.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: coffee-svc-2
+          servicePort: 80
