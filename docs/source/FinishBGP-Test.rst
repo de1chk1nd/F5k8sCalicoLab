@@ -221,10 +221,5 @@ Let's assume a traffic flow from :red:`bigip`:
 4. return traffic leaving the POD (through tunnel interface), will be sent back to f5 (either because of SNAT on :red:`bigip` or via default route)
 
 
-
-
-
-
-
 .. toctree::
    :maxdepth: 2

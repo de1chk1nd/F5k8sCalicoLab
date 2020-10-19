@@ -131,11 +131,67 @@ Check if the controller is in :red:`Running` state. We installed the controller 
     kube-scheduler-ip-10-1-1-4                   1/1     Running   8          159d
 
 
+example code k8s-bigip1-ctlr-deployment::
+
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+     name: k8s-bigip1-ctlr-deployment
+     namespace: kube-system
+    spec:
+     selector:
+       matchLabels:
+         app: k8s-bigip1-ctlr
+     # DO NOT INCREASE REPLICA COUNT
+     replicas: 1
+     template:
+       metadata:
+         labels:
+           app: k8s-bigip1-ctlr
+       spec:
+         # Name of the Service Account bound to a Cluster Role with the required
+         # permissions
+         serviceAccountName: bigip-ctlr
+         containers:
+           - name: k8s-bigip-ctlr
+             image: "f5networks/k8s-bigip-ctlr"
+             env:
+               - name: BIGIP_USERNAME
+                 valueFrom:
+                   secretKeyRef:
+                     # Replace with the name of the Secret containing your login
+                     # credentials
+                     name: bigip-login
+                     key: username
+               - name: BIGIP_PASSWORD
+                 valueFrom:
+                   secretKeyRef:
+                     # Replace with the name of the Secret containing your login
+                     # credentials
+                     name: bigip-login
+                     key: password
+             command: ["/app/bin/k8s-bigip-ctlr"]
+             args: [
+               # See the k8s-bigip-ctlr documentation for information about
+               # all config options
+               # https://clouddocs.f5.com/products/connectors/k8s-bigip-ctlr/latest
+               "--bigip-username=$(BIGIP_USERNAME)",
+               "--bigip-password=$(BIGIP_PASSWORD)",
+               "--bigip-url=10.1.20.5",
+               "--bigip-partition=kubernetes",
+               "--insecure=true",
+               "--pool-member-type=cluster",
+               "--agent=as3",
+               "--default-ingress-ip=10.1.10.85"
+               ]
+         imagePullSecrets:
+           # Secret that gives access to a private docker registry
+           - name: f5-docker-images
+           # Secret containing the BIG-IP system login credentials
+           - name: bigip-login
 
 
-
-
-
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/cis/002_setup_cis_bigip.yaml>`
 
 
 .. toctree::

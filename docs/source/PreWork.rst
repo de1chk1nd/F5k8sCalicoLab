@@ -168,7 +168,7 @@ Check if deployments are up in default namespace::
     tea                   2/2     2            2           159d
     tea-2                 2/2     2            2           158d
 
-You should see several "coffe", "tea" and "f5-hello-worl deplyoments"
+You should see several "coffe", "tea" and "f5-hello-world deployments"
 
 
 Check Services
@@ -211,7 +211,6 @@ Check services in default namespace::
                   <head>
                         <!-- Basic Page Needs
               [...]
-
 
 
 .. toctree::
