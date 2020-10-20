@@ -17,15 +17,20 @@ For f5 Solution Engineers:
 Link to my **github repo** with further information and *raw* config files : `F5k8sCalicoLab <https://github.com/de1chk1nd/F5k8sCalicoLab>`_
 
 
-
 .. toctree::
    :numbered:
    :maxdepth: 2
-   :caption: Table of Contents
+   :caption: Preparing the lab
 
    Lab Setup & Pre Reading <PreWork>
    Finishing BGP Set Up <FinishBGP>
    Test Calico SDN Networking <FinishBGP-Test>
    Preparing for basic k8s ingress <k8s_basic_ingress>
+
+.. toctree::
+   :numbered:
+   :maxdepth: 2
+   :caption: Creating Services
+
    Creating k8s basic ingress <k8s_basic_ingress_service>
    Adv. Ingress & Custom Resource Definitions <adv-ingress_CRD>

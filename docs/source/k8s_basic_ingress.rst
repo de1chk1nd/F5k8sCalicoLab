@@ -74,6 +74,7 @@ Check if basic Partition is installed (Check Partition in the top right):
 | We should see partition **kubernetes**
 
 
+
 Get latest yaml repro
 ---------------------
 
