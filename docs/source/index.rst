@@ -33,4 +33,4 @@ Link to my **github repo** with further information and *raw* config files : `F5
    :caption: Creating Services
 
    Creating k8s basic ingress <k8s_basic_ingress_service>
-   Adv. Ingress & Custom Resource Definitions <adv-ingress_CRD>
+   Adv Ingress & CRD <Adv_CRD>

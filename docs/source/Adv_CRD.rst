@@ -1,5 +1,3 @@
-.. _adv-ingress:
-
 .. raw:: html
 
    <style> .red {color:red}; font-weight:bold </style>
