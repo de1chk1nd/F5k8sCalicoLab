@@ -22,20 +22,21 @@ Lab Information - Overview
 
 This Lab has several components:
 
-1. Kubernetes Cluster (1 Master with kubectl; 2 Worker Nodes)
+1. Kubernetes Cluster (1 Master with kubectl installed; 2 Worker Nodes)
 
-   * IP 10.1.20.20 (master); 10.1.20.21 (Worker I); 10.1.20.22 (Worker II)
-
+   * IP 10.1.20.20 (master)
+   * 10.1.20.21 (Worker I)
+   * 10.1.20.22 (Worker II)
 
 2. F5 Big IP with AS3 installed
 
    * IP 10.1.10.5 (external VLAN); 10.1.20.5 (internal VLAN)
 
-
 3. external client
 
    * IP 10.1.10.250
 
+|
 
 .. image:: images/lab-setup.png
    :width: 400
