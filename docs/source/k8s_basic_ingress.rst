@@ -41,19 +41,37 @@ Check if AS3 is installed (iApps > Package Management LX):
 
 
 Communication from BigIP Controller for Controller Ingress Service is using AS3.
-In the current lab, we installed **3.19**
+In the current lab, we installed **3.21.0**
 
 Check if basic Partition is installed (Check Partition in the top right):
 
-   .. image:: images/bigip-partition.png
-      :width: 800
-      :alt: F5 Partition
-      :align: left
+.. image:: images/bigip-partition.png
+   :width: 600
+   :alt: F5 Partition
+   :align: left
 
-
-
-We need to specify a default partition in the controller config - this one must match the local partition.
-We should see partition **kubernetes**
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+|
+| We need to specify a default partition in the controller config - this one must match the local partition.
+|
+| We should see partition **kubernetes**
 
 
 Get latest yaml repro
@@ -92,9 +110,9 @@ Install BigIP Controller
 
 Login to :blue:`k8s master (10.1.20.20)`.
 
-Check local CIS deployment files.
+Check local CIS deployment files in **/k8s/cis/** 
 
-001_f5-k8s-sample-rbac.yaml was deployed as part of the pre work (not part of the lab)::
+001_f5-k8s-sample-rbac.yaml was deployed as part of the pre work (not part of this exercise)::
 
     ubuntu@ip-10-1-1-4:~$ cd k8s/cis/
     ubuntu@ip-10-1-1-4:~/k8s/cis$ ll
