@@ -33,4 +33,6 @@ Link to my **github repo** with further information and *raw* config files : `F5
    :maxdepth: 2
    :caption: Creating Services
 
-   Creating k8s basic ingress <k8s_basic_ingress_service>
+   k8s basic ingress <k8s_basic_ingress_service>
+   k8s advanced ingress <adv-ing>
+   k8s custom cesource definition <crd>
