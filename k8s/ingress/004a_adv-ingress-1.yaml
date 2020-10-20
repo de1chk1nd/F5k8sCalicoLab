@@ -9,9 +9,12 @@ metadata:
     # Specify the BIG-IP partition containing the virtual server.
     virtual-server.f5.com/partition: "kubernetes"
     # Allow/deny TLS connections
-    ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/ssl-redirect: "true"
     # Allow/deny HTTP connections
-    ingress.kubernetes.io/allow-http: "true"
+    ingress.kubernetes.io/allow-http: "false"
+    # Uncomment below annotation, to attach Server SSL Profile (local SSL profile)
+    # virtual-server.f5.com/serverssl: "/Common/serverssl"
+    # Custom monitor
     virtual-server.f5.com/health: '[{"path": "/", "send": "HTTP GET /", "interval": 5, "timeout": 10}]'
 spec:
   tls:
