@@ -219,6 +219,5 @@ Check services in default namespace::
           While the IP is equal to the worker node IP, and Port is equal to the high port shown in the *get svc* output above.
 
 
-
 .. toctree::
    :maxdepth: 2

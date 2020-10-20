@@ -27,10 +27,10 @@ Link to my **github repo** with further information and *raw* config files : `F5
    Test Calico SDN Networking <FinishBGP-Test>
    Preparing for basic k8s ingress <k8s_basic_ingress>
 
+
 .. toctree::
    :numbered:
    :maxdepth: 2
    :caption: Creating Services
 
    Creating k8s basic ingress <k8s_basic_ingress_service>
-   Adv Ingress & CRD <Adv_CRD>
