@@ -44,12 +44,13 @@ This Lab has several components:
    :align: center
 
 
-Calico overlay network is a **192.168.0.0/16**
+Calico overlay network is a **192.168.0.0/16** address range.
 
 .. warning::
-   If set up properly, you set up the kubadm init with "--pod-network-cidr=192.168.0.0/16".
+   When setting up the cluster manually, the pod CIDR and the calico CIDR must match (in our case 192.168.0.0/16).
 
-   One side must have the correct config of the other. In this case, we assigned the k8s cluster the default CIDR from Calico
+
+   See the the lab guides below for detailed information (Calico pt. I and pt. II).
 
 
 Steps already done from this lab Guide
@@ -123,9 +124,10 @@ To better understand the Calico SDN, I recommend to have a look into the video b
 
 .. admonition:: For the techer's pets ...
 
-      I use this first part of the video to show case calico to partner and cutomers - and generally it is well received
+      I took the first part of the video and use the whiteboarding to show case calico to partner and customer.
 
 
+      It is and generally well received and it is easy to learn, as the mechanic is just simple routing (low hanging fruit)
 
 
 
@@ -196,7 +198,8 @@ Check services in default namespace::
 
 .. admonition:: For the careful reader ...
 
-          Two services are deplyoed with "NodePort". Those are services are already accessible from external [curl <worker-node-ip>:<nodeport>].
+          | Two services are deplyoed with "NodePort".
+          | Those are services are already accessible from external **curl <worker-node-ip>:<nodeport>**.
 
           To test this, login to :red:`bigip (10.1.10.5)` and::
 
@@ -213,6 +216,7 @@ Check services in default namespace::
                         <!-- Basic Page Needs
               [...]
 
+          While the IP is equal to the worker node IP, and Port is equal to the high port shown in the *get svc* output above.
 
 .. toctree::
    :maxdepth: 2
