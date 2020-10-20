@@ -84,7 +84,7 @@ Login to :blue:`k8s master (10.1.20.20)`::
     ubuntu@ip-10-1-1-4:~$ cd ~
     ubuntu@ip-10-1-1-4:~$ pwd
     /home/ubuntu
-    ubuntu@ip-10-1-1-4:~$ svn export https://github.com/de1chk1nd/F5k8sCalicoLab/trunk/k8s k8s --force
+    ubuntu@ip-10-1-1-4:~$ svn export https://github.com/de1chk1nd/F5k8sCalicoLab/trunk/k8s /home/ubuntu/k8s --force
     A    k8s
     A    k8s/cis
     A    k8s/cis/001_f5-k8s-sample-rbac.yaml

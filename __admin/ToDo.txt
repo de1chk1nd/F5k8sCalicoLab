@@ -7,17 +7,16 @@ Documentation - READTHEDOCS
 UDF Blueprint
 =============
 
-20201020-5
-20201020-5
-20201020-7 fetch git repo
-20201020-6 Cluster Role Binding neu erstellen
-20201020-5 MGMT Partition auf large
-20201020-4 Add 10.1.10.90, 91, 92, 93, 94, 95 to bigip NW config
+
 
 
 Task DONE / Date
 ================
 
+20201020-6 Cluster Role Binding neu erstellen
+20201020-7 fetch git repo
+20201020-5 MGMT Partition auf large
+20201020-4 Add 10.1.10.90, 91, 92, 93, 94, 95 to bigip NW config
 20201020-3 Upgrade Big IP to 15.1.0.5
 20201020-2 Upgrade AS3 to Version 3.21.0
 20201020-1 Add github link to description

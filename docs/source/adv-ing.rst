@@ -116,7 +116,14 @@ See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoL
 
 This creates a similar service, as seen before. This time we just specify a name **tls: secretName: ingress-example-secret-tls**
 
-CIS controller will always lookup local secret store, before falling back to a local profile (if not explicitly configured else).
+.. admonition:: secret vs. local profile
+
+   CIS controller will **always** lookup local secret store, before falling back to a local profile (but this is a configurable setting).
+
+   In this example, CIS controller finds "ingress-example-secret-tls" in the local store and creates neccessary TLS profiles on f5.
+
+   In the previous example, CIS controller couldn't find /Common/clientssl in the local store - and assumes this will be a local bigip profile.
+
 
 So we have to provide a local secret::
 
