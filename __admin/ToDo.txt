@@ -7,7 +7,7 @@ Documentation - READTHEDOCS
 UDF Blueprint
 =============
 
-
+20201020-8 Add undeploy services to single-ingress and shared-ingress
 
 
 Task DONE / Date
