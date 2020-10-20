@@ -24,16 +24,3 @@ spec:
     # traffic using TLS
     serviceName: coffee-svc
     servicePort: 80
-
-#
-#
-
-apiVersion: v1
-kind: Secret
-metadata:
-  name: ingress-example-secret-tls
-  namespace: default
-data:
-  tls.crt:
-  tls.key: 
-type: kubernetes.io/tls
