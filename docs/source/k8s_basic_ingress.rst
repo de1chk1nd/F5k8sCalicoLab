@@ -110,7 +110,7 @@ Install BigIP Controller
 
 Login to :blue:`k8s master (10.1.20.20)`.
 
-Check local CIS deployment files in **/k8s/cis/** 
+Check local CIS deployment files in **/k8s/cis/**
 
 001_f5-k8s-sample-rbac.yaml was deployed as part of the pre work (not part of this exercise)::
 
@@ -172,7 +172,7 @@ example code k8s-bigip1-ctlr-deployment::
          serviceAccountName: bigip-ctlr
          containers:
            - name: k8s-bigip-ctlr
-             image: "f5networks/k8s-bigip-ctlr"
+             image: "f5networks/k8s-bigip-ctlr:latest"
              env:
                - name: BIGIP_USERNAME
                  valueFrom:
