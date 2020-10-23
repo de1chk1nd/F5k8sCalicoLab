@@ -19,8 +19,8 @@
    verbs: ["get", "list", "watch", "update"]
  ---
  kind: ClusterRoleBinding
-  apiVersion: rbac.authorization.k8s.io/v1
-  metadata:
+ apiVersion: rbac.authorization.k8s.io/v1
+ metadata:
    name: bigip-ctlr-clusterrole-binding
    namespace: kube-system
  roleRef:
