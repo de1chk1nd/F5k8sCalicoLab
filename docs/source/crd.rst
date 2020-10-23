@@ -34,7 +34,7 @@ If ingress services are showing up, delete them with *kubectl delete ingress <in
    ubuntu@ip-10-1-1-4:~$ kubectl delete ingress singleingress1
 
 
-Delete Old Ingress Controller::
+Delete old Ingress Controller::
 
    kubectl delete -f /home/ubuntu/k8s/cis/002_setup_cis_bigip.yaml
 
@@ -58,6 +58,15 @@ Definition from clouddocs.f5.com:
    For an overview about supported parameters and a link to the schema file, please check here `here <https://clouddocs.f5.com/containers/latest/userguide/crd.html#id1>`_
 
 
+.. warning::
+
+   CRD are not working with config maps and Ingress - see notes below from clouddocs.f5.com:
+
+   * --custom-resource-mode=true deploys CIS in Custom Resource Mode.
+   
+   * CIS does not watch for Ingress/Routes/ConfigMaps when deployed in CRD Mode.
+   
+   * CIS does not support combination of CRDs with any of Ingress/Routes and ConfigMaps.
 
 
 Installation of Custom Ressource in k8s
@@ -73,6 +82,14 @@ When installed, you can start configuring CRDs in your k8s cluster::
    kubectl create -f 001_customresourcedefinitions.yml -n kube-system
 
 
+Deploy the contoller in CRD mode::
+
+   kubectl create -f 002_crd_cis.yml -n kube-system
+
+
+As described in the previous chapter, controller will be deplyoed with **--custom-resource-mode=true**
+
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/002_crd_cis.yml>`
 
 
 .. toctree::
