@@ -1,9 +1,57 @@
+.. _finish-bgp:
+
+.. raw:: html
+
+   <style> .red {color:red}; font-weight:bold </style>
+
+.. role:: red
 
 
+.. raw:: html
+
+   <style> .blue {color:blue}; font-weight:bold </style>
+
+.. role:: blue
 
 
-TITLE
-=====
+Custom Ressource Definition
+===========================
+
+Preperation
+-----------
+
+Please check, that all **ingress** Ressources are deleted properly::
+
+   ubuntu@ip-10-1-1-4:~$ kubectl get ingress
+   No resources found.
+
+
+If ingress services are showing up, delete them with *kubectl delete ingress <ingress name>*::
+
+   ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl get ingress
+   NAME             HOSTS   ADDRESS   PORTS   AGE
+   singleingress1   *                 80      7s
+   ubuntu@ip-10-1-1-4:~$ kubectl delete ingress singleingress1
+
+
+What is a custom Ressource Definition
+-------------------------------------
+
+From clouddocs.f5.com:
+
+.. admonition:: What is a custom Ressource...
+
+   * Custom resources are extensions of the Kubernetes API
+   * A resource is an endpoint in the Kubernetes API that stores a collection of API objects. For example, the built-in pods resource contains a collection of Pod objects
+   * A custom resource is an extension of the Kubernetes API that is not necessarily available in a default Kubernetes installation. It represents a customization of a particular Kubernetes installation. However, many core Kubernetes functions are now built using custom resources, making Kubernetes more modular
+   * Custom resources can appear and disappear in a running cluster through dynamic registration, and cluster admins can update custom resources independently of the cluster itself. Once a custom resource is installed, users can create and access its objects using kubectl, just as they do for built-in resources like Pods
+   * CIS supports the following Custom Resources:
+      * VirtualServer (VirtualServer resource defines load balancing configuration for a **domain name**)
+      * TLSProfile (TLSProfile is used to specify the TLS termination for a single/list of services in a VirtualServer Custom Resource. **TLS termination relies on SNI**)
+      * TransportServer (The TransportServer resource exposes the **non-HTTP traffic** configuration for a virtual server address in BIG-IP)
+
+   For an overview about supported parameters and a link to the schema file, please check ´here <https://clouddocs.f5.com/containers/latest/userguide/crd.html#id1>`_
+
 
 
 

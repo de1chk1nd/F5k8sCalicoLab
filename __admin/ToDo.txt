@@ -7,7 +7,7 @@ Documentation - READTHEDOCS
 UDF Blueprint
 =============
 
-20201020-8 Add undeploy services to single-ingress and shared-ingress
+20201023-1 pull new archive from git to master
 
 
 Task DONE / Date
