@@ -28,7 +28,7 @@ Please check, that ALL **ingress** Ressources are deleted properly::
 
 If ingress services are showing up, delete them with *kubectl delete ingress <ingress name>*::
 
-   ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl get ingress
+   ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl delete ingress singleingress1
    NAME             HOSTS   ADDRESS   PORTS   AGE
    singleingress1   *                 80      7s
    ubuntu@ip-10-1-1-4:~$ kubectl delete ingress singleingress1
@@ -72,24 +72,76 @@ Definition from clouddocs.f5.com:
 Installation of Custom Ressource in k8s
 ---------------------------------------
 
-Donwload the current CRD to your local repo::
+Change folder to /home/ubuntu/k8s/crd and take a look at the config file. Deploy the config::
 
-   wget https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/master/docs/_static/config_examples/crd/Install/customresourcedefinitions.yml -O /home/ubuntu/k8s/crd/001_customresourcedefinitions.yml
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 001_customresourcedefinitions.yml
+   customresourcedefinition.apiextensions.k8s.io/virtualservers.cis.f5.com created
+   customresourcedefinition.apiextensions.k8s.io/tlsprofiles.cis.f5.com created
+   customresourcedefinition.apiextensions.k8s.io/transportservers.cis.f5.com created
 
 
-When installed, you can start configuring CRDs in your k8s cluster::
+.. warning::
 
-   kubectl create -f 001_customresourcedefinitions.yml -n kube-system
+   **Double-Chek, that the old POD is not running (deployment deleted in Step 1 of this CRD Guide)**
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl get pods -n kube-system
+   NAME                                       READY   STATUS    RESTARTS   AGE
+   calico-kube-controllers-7567d8d9dd-m9zt2   1/1     Running   2          3h
+   calico-node-8lst4                          1/1     Running   2          3h
+   calico-node-stpvd                          1/1     Running   2          178m
+   calico-node-wlkwb                          1/1     Running   2          178m
+   coredns-66bff467f8-s6v8r                   1/1     Running   2          3h7m
+   coredns-66bff467f8-z8896                   1/1     Running   2          3h7m
+   etcd-ip-10-1-1-4                           1/1     Running   2          3h7m
+   kube-apiserver-ip-10-1-1-4                 1/1     Running   2          3h7m
+   kube-controller-manager-ip-10-1-1-4        1/1     Running   2          3h7m
+   kube-proxy-269bk                           1/1     Running   2          178m
+   kube-proxy-cljb4                           1/1     Running   2          178m
+   kube-proxy-n9w8z                           1/1     Running   2          3h7m
+   kube-scheduler-ip-10-1-1-4                 1/1     Running   2          3h7m
 
 
 Deploy the contoller in CRD mode::
 
-   kubectl create -f 002_crd_cis.yml -n kube-system
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 002_crd_cis.yml
+   deployment.apps/k8s-bigip1-ctlr-deployment created
 
 
 As described in the previous chapter, controller will be deplyoed with **--custom-resource-mode=true**
 
 See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/002_crd_cis.yml>`
+
+
+Now we can start deplying CRD services.
+
+
+Simple HTTP Service
+-------------------
+
+Service Deplyoment::
+
+   apiVersion: "cis.f5.com/v1"
+   kind: VirtualServer
+   metadata:
+   name: tea-virtual-server
+   labels:
+      f5cr: "true"
+   spec:
+   # This is an insecure virtual, Please use TLSProfile to secure the virtual
+   # check out tls examples to understand more.
+   virtualServerAddress: "10.1.10.92"
+   host: cafe.de1chk1nd.de
+   pools:
+   - path: /coffee
+      service: coffee-svc
+      servicePort: 80
+   - path: /tea
+      service: tea-svc
+      servicePort: 80
+
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003a_crd_simple_http.yaml>`
+
+
 
 
 .. toctree::

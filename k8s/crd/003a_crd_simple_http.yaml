@@ -13,6 +13,8 @@ spec:
   - path: /coffee
     service: coffee-svc
     servicePort: 80
+    monitor: http
   - path: /tea
     service: tea-svc
     servicePort: 80
+    monitor: http
