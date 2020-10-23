@@ -135,9 +135,22 @@ Service Deplyoment::
    - path: /coffee
       service: coffee-svc
       servicePort: 80
+      monitor:
+         type: http
+         send: “GET /rn”
+         recv: ""
+         interval: 10
+         timeout: 10
    - path: /tea
       service: tea-svc
       servicePort: 80
+      monitor:
+         type: http
+         send: “GET /rn”
+         recv: ""
+         interval: 10
+         timeout: 10
+
 
 See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003a_crd_simple_http.yaml>`
 
