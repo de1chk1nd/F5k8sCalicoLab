@@ -50,7 +50,7 @@ spec:
               "--log-level=DEBUG",
               "--log-as3-response=true",
               # Self-signed cert
-              "--insecure=true"
+              "--insecure=true",
               # Custom Resource Mode
               "--custom-resource-mode=true"
             ]
