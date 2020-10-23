@@ -7,14 +7,15 @@ Documentation - READTHEDOCS
 UDF Blueprint
 =============
 
-20201023-1 pull new archive from git to master
 
+20201023-2 BUG with Service Account (can not deplyo services)
 
 Task DONE / Date
 ================
 
-20201023-1 edited /etc/hosts
+20201023-2 BUG with Service Account (can not deploy services)
 20201023-2 upgrade to k8s 1.18
+20201023-1 edited /etc/hosts
 20201023-1 pull new archive from git to master
 20201020-6 Cluster Role Binding neu erstellen
 20201020-7 fetch git repo

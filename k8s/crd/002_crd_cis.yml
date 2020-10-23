@@ -37,17 +37,17 @@ spec:
                  key: password
          command: ["/app/bin/k8s-bigip-ctlr"]
          args: [
-           "--bigip-username=$(BIGIP_USERNAME)",
-           "--bigip-password=$(BIGIP_PASSWORD)",
-           # Replace with the IP address or hostname of your BIG-IP device
-           "--bigip-url=10.1.20.5",
-           # Replace with the name of the BIG-IP partition you want to manage
-           "--bigip-partition=kubernetes",
-           # Replace with service type - cluster or nodeport
-           "--pool-member-type=cluster",
-           # Logging level
-           "--log-level=DEBUG",
-           "--log-as3-response=true",
+            "--bigip-username=$(BIGIP_USERNAME)",
+              "--bigip-password=$(BIGIP_PASSWORD)",
+              # Replace with the IP address or hostname of your BIG-IP device
+              "--bigip-url=10.1.20.5",
+              # Replace with the name of the BIG-IP partition you want to manage
+              "--bigip-partition=kubernetes",
+              # Replace with service type - cluster or nodeport
+              "--pool-member-type=cluster",
+              # Logging level
+              "--log-level=DEBUG",
+              "--log-as3-response=true",
            # Self-signed cert
            "--insecure=true",
            # Custom Resource Mode
