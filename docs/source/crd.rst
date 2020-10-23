@@ -34,6 +34,11 @@ If ingress services are showing up, delete them with *kubectl delete ingress <in
    ubuntu@ip-10-1-1-4:~$ kubectl delete ingress singleingress1
 
 
+Delete Old Ingress Controller::
+
+   kubectl delete -f /home/ubuntu/k8s/cis/002_setup_cis_bigip.yaml
+
+
 What is a custom Ressource Definition
 -------------------------------------
 
