@@ -1,4 +1,4 @@
-piVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: k8s-bigip1-ctlr-deployment
@@ -37,7 +37,6 @@ spec:
                  key: password
          command: ["/app/bin/k8s-bigip-ctlr"]
          args: [
-            args: [
               "--bigip-username=$(BIGIP_USERNAME)",
               "--bigip-password=$(BIGIP_PASSWORD)",
               # Replace with the IP address or hostname of your BIG-IP device
