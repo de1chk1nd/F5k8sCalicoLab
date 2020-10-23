@@ -53,7 +53,15 @@ From clouddocs.f5.com:
    For an overview about supported parameters and a link to the schema file, please check ´here <https://clouddocs.f5.com/containers/latest/userguide/crd.html#id1>`_
 
 
+Installation of Custom Ressource in k8s
+---------------------------------------
 
+Donwload the current CRD to your local repo::
+
+   wget https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/master/docs/_static/config_examples/crd/Install/customresourcedefinitions.yml -O /home/ubuntu/k8s/crd/001_customresourcedefinitions.yml
+
+
+   
 
 .. toctree::
    :maxdepth: 2
