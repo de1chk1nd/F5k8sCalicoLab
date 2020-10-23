@@ -68,6 +68,16 @@ This creates a simple SSL Service with ssl redirect on port 80. Uncommenting "vi
 
 With **tls: - secretName: /path-to/profile** we define the local SSL Profile to use for decryption.
 
+Test access::
+
+  ubuntu@ip-10-1-1-8:~$ curl -k https://10.1.10.90
+  Server address: 192.168.74.146:8080
+  Server name: coffee-5f56ff9788-clvl6
+  Date: 23/Oct/2020:17:35:39 +0000
+  URI: /
+  Request ID: 443231fc6b6a1eebd0695fc3ceed6ad9
+
+
 
 TLS with k8s secret stored certificate
 --------------------------------------
@@ -103,7 +113,7 @@ Second Option is to store certificate information within the k8s cluster as secr
         #secure the channel from the client to the load balancer using TLS
         secretName: ingress-example-secret-tls
       rules:
-        - host: mysite.example.com
+        - host: www.adv-ingress.com
           http:
           # path to Service from URL
             paths:
@@ -138,6 +148,28 @@ So we have to provide a local secret::
     type: kubernetes.io/tls
 
 See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/ingress/004b_secret_cert.yaml>`
+
+
+Deploy the cert ...::
+
+  ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl apply -f 004b_secret_cert.yaml
+  secret/ingress-example-secret-tls created
+
+
+... and app::
+
+  ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl apply -f 004c_adv-ingress-1.yaml
+  ingress.extensions/singleingress8 created
+
+
+After deplyoment test via external client::
+
+  ubuntu@ip-10-1-1-8:~$ curl -H "Host: www.adv-ingress.com" -k https://10.1.10.91
+  Server address: 192.168.43.87:8080
+  Server name: coffee-5f56ff9788-4mlqn
+  Date: 23/Oct/2020:17:33:59 +0000
+  URI: /
+  Request ID: c012cbf30dd3239f5d9c3b4b87683635
 
 
 

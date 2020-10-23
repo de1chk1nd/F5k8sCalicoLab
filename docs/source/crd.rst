@@ -20,7 +20,7 @@ Custom Ressource Definition
 Preperation
 -----------
 
-Please check, that all **ingress** Ressources are deleted properly::
+Please check, that ALL **ingress** Ressources are deleted properly::
 
    ubuntu@ip-10-1-1-4:~$ kubectl get ingress
    No resources found.

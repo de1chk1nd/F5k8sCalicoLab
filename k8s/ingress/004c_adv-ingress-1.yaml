@@ -25,7 +25,7 @@ spec:
     #secure the channel from the client to the load balancer using TLS
     secretName: ingress-example-secret-tls
   rules:
-    - host: mysite.example.com
+    - host: www.adv-ingress.com
       http:
       # path to Service from URL
         paths:

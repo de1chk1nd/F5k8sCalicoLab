@@ -7,8 +7,9 @@ Documentation - READTHEDOCS
 UDF Blueprint
 =============
 
-
-20201023-2 BUG with Service Account (can not deplyo services)
+20201023-5 www.adv-ingress.com 10.1.10.91 to /etc/hosts of client pc
+20201023-4 BUG Change RBAC
+20201023-3 Add www.app1.com, www.app2.com, www.app3.com 10.1.10.85 to /etc/hosts of client pc
 
 Task DONE / Date
 ================

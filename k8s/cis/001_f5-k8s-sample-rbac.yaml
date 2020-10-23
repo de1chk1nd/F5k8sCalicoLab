@@ -12,7 +12,6 @@
    verbs: ["get", "list", "watch", "update", "create", "patch"]
  - apiGroups: ["", "extensions"]
    resources: ["secrets"]
-   resourceNames: ["<secret-containing-bigip-login>"]
    verbs: ["get", "list", "watch"]
  - apiGroups: ["cis.f5.com"]
    resources: ["virtualservers", "tlsprofiles", "transportservers"]
