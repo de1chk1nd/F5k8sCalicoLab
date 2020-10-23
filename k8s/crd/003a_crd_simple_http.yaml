@@ -28,4 +28,3 @@ spec:
       recv: ""
       interval: 10
       timeout: 10
-    monitor: http
