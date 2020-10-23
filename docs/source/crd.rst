@@ -84,21 +84,21 @@ Change folder to /home/ubuntu/k8s/crd and take a look at the config file. Deploy
 
    **Double-Chek, that the old POD is not running (deployment deleted in Step 1 of this CRD Guide)**
 
-   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl get pods -n kube-system
-   NAME                                       READY   STATUS    RESTARTS   AGE
-   calico-kube-controllers-7567d8d9dd-m9zt2   1/1     Running   2          3h
-   calico-node-8lst4                          1/1     Running   2          3h
-   calico-node-stpvd                          1/1     Running   2          178m
-   calico-node-wlkwb                          1/1     Running   2          178m
-   coredns-66bff467f8-s6v8r                   1/1     Running   2          3h7m
-   coredns-66bff467f8-z8896                   1/1     Running   2          3h7m
-   etcd-ip-10-1-1-4                           1/1     Running   2          3h7m
-   kube-apiserver-ip-10-1-1-4                 1/1     Running   2          3h7m
-   kube-controller-manager-ip-10-1-1-4        1/1     Running   2          3h7m
-   kube-proxy-269bk                           1/1     Running   2          178m
-   kube-proxy-cljb4                           1/1     Running   2          178m
-   kube-proxy-n9w8z                           1/1     Running   2          3h7m
-   kube-scheduler-ip-10-1-1-4                 1/1     Running   2          3h7m
+   | ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl get pods -n kube-system
+   | NAME                                       READY   STATUS    RESTARTS   AGE
+   | calico-kube-controllers-7567d8d9dd-m9zt2   1/1     Running   2          3h
+   | calico-node-8lst4                          1/1     Running   2          3h
+   | calico-node-stpvd                          1/1     Running   2          178m
+   | calico-node-wlkwb                          1/1     Running   2          178m
+   | coredns-66bff467f8-s6v8r                   1/1     Running   2          3h7m
+   | coredns-66bff467f8-z8896                   1/1     Running   2          3h7m
+   | etcd-ip-10-1-1-4                           1/1     Running   2          3h7m
+   | kube-apiserver-ip-10-1-1-4                 1/1     Running   2          3h7m
+   | kube-controller-manager-ip-10-1-1-4        1/1     Running   2          3h7m
+   | kube-proxy-269bk                           1/1     Running   2          178m
+   | kube-proxy-cljb4                           1/1     Running   2          178m
+   | kube-proxy-n9w8z                           1/1     Running   2          3h7m
+   | kube-scheduler-ip-10-1-1-4                 1/1     Running   2          3h7m
 
 
 Deploy the contoller in CRD mode::
