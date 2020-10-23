@@ -17,12 +17,10 @@
  - apiGroups: ["cis.f5.com"]
    resources: ["virtualservers", "tlsprofiles", "transportservers"]
    verbs: ["get", "list", "watch", "update"]
-
  ---
-
  kind: ClusterRoleBinding
- apiVersion: rbac.authorization.k8s.io/v1
- metadata:
+  apiVersion: rbac.authorization.k8s.io/v1
+  metadata:
    name: bigip-ctlr-clusterrole-binding
    namespace: kube-system
  roleRef:
