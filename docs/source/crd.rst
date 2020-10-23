@@ -37,7 +37,7 @@ If ingress services are showing up, delete them with *kubectl delete ingress <in
 What is a custom Ressource Definition
 -------------------------------------
 
-From clouddocs.f5.com:
+Definition from clouddocs.f5.com:
 
 .. admonition:: What is a custom Ressource...
 
@@ -50,8 +50,9 @@ From clouddocs.f5.com:
       * TLSProfile (TLSProfile is used to specify the TLS termination for a single/list of services in a VirtualServer Custom Resource. **TLS termination relies on SNI**)
       * TransportServer (The TransportServer resource exposes the **non-HTTP traffic** configuration for a virtual server address in BIG-IP)
 
-   For an overview about supported parameters and a link to the schema file, please check here 'here <https://clouddocs.f5.com/containers/latest/userguide/crd.html#id1>'_
-   
+   For an overview about supported parameters and a link to the schema file, please check here `here <https://clouddocs.f5.com/containers/latest/userguide/crd.html#id1>`_
+
+
 
 
 Installation of Custom Ressource in k8s
@@ -60,6 +61,11 @@ Installation of Custom Ressource in k8s
 Donwload the current CRD to your local repo::
 
    wget https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/master/docs/_static/config_examples/crd/Install/customresourcedefinitions.yml -O /home/ubuntu/k8s/crd/001_customresourcedefinitions.yml
+
+
+When installed, you can start configuring CRDs in your k8s cluster::
+
+   kubectl create -f 001_customresourcedefinitions.yml -n kube-system
 
 
 
