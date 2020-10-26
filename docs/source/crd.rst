@@ -101,15 +101,26 @@ Change folder to /home/ubuntu/k8s/crd and take a look at the config file. Deploy
    | kube-scheduler-ip-10-1-1-4                 1/1     Running   2          3h7m
 
 
+Change RBAC (add CRD APIs)::
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 002_rbac_crd.yml
+   clusterrole.rbac.authorization.k8s.io/bigip-ctlr-clusterrole unchanged
+   clusterrolebinding.rbac.authorization.k8s.io/bigip-ctlr-clusterrole-binding configured
+
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003_crd_cis.yml>`
+
+
+
 Deploy the contoller in CRD mode::
 
    ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 002_crd_cis.yml
    deployment.apps/k8s-bigip1-ctlr-deployment created
 
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003_crd_cis.yml>`
+
+
 
 As described in the previous chapter, controller will be deplyoed with **--custom-resource-mode=true**
-
-See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/002_crd_cis.yml>`
 
 
 Now we can start deplying CRD services.
@@ -123,7 +134,7 @@ Service Deplyoment::
    apiVersion: "cis.f5.com/v1"
    kind: VirtualServer
    metadata:
-   name: tea-virtual-server
+   name: cafe-virtual-server
    labels:
       f5cr: "true"
    spec:
@@ -155,6 +166,77 @@ Service Deplyoment::
 See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003a_crd_simple_http.yaml>`
 
 
+Apply CRD::
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 004a_crd_simple_http.yaml
+   virtualserver.cis.f5.com/tea-virtual-server created
+
+
+Check Service in k8s::
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl get VirtualServer
+   NAME                 AGE
+   tea-virtual-server   93s
+
+
+And in f5:
+
+
+
+Simple HTTPS Service
+--------------------
+
+Service Deplyoment::
+
+   apiVersion: "cis.f5.com/v1"
+   kind: VirtualServer
+   metadata:
+   name: cafe-virtual-server
+   labels:
+      f5cr: "true"
+   spec:
+   # This is an insecure virtual, Please use TLSProfile to secure the virtual
+   # check out tls examples to understand more.
+   virtualServerAddress: "10.1.10.92"
+   host: cafe.de1chk1nd.de
+   pools:
+   - path: /coffee
+      service: coffee-svc
+      servicePort: 80
+      monitor:
+         type: http
+         send: “GET /rn”
+         recv: ""
+         interval: 10
+         timeout: 10
+   - path: /tea
+      service: tea-svc
+      servicePort: 80
+      monitor:
+         type: http
+         send: “GET /rn”
+         recv: ""
+         interval: 10
+         timeout: 10
+
+
+See :download:`Example Code on github <https://github.com/de1chk1nd/F5k8sCalicoLab/blob/main/k8s/crd/003a_crd_simple_http.yaml>`
+
+
+Apply CRD::
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl apply -f 004a_crd_simple_http.yaml
+   virtualserver.cis.f5.com/tea-virtual-server created
+
+
+Check Service in k8s::
+
+   ubuntu@ip-10-1-1-4:~/k8s/crd$ kubectl get VirtualServer
+   NAME                 AGE
+   tea-virtual-server   93s
+
+
+And in f5:
 
 
 .. toctree::
