@@ -16,7 +16,6 @@ rules:
     verbs: ["get", "list", "watch", "update"]
   - apiGroups: ["", "extensions"]
     resources: ["secrets"]
-    resourceNames: ["<secret-containing-bigip-login>"]
     verbs: ["get", "list", "watch"]
 ---
 
@@ -33,4 +32,4 @@ subjects:
   - apiGroup: ""
     kind: ServiceAccount
     name: bigip-ctlr
-    namespace: <controller_namespace>
+    namespace: kube-system
