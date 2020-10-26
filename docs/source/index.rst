@@ -36,4 +36,6 @@ Link to my **github repo** with further information and *raw* config files : `F5
 
    k8s basic ingress <k8s_basic_ingress_service>
    k8s advanced ingress <adv-ing>
+   k8s config maps <configmap>
    k8s custom cesource definition <crd>
+   ingress vs config map vs CRDs <comparision>
