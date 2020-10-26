@@ -48,10 +48,10 @@ spec:
               # Logging level
               "--log-level=DEBUG",
               "--log-as3-response=true",
-           # Self-signed cert
-           "--insecure=true",
-           # Custom Resource Mode
-           "--custom-resource-mode=true"          
+              # Self-signed cert
+              "--insecure=true",
+              # Custom Resource Mode
+              "--custom-resource-mode=true"          
            ]
      imagePullSecrets:
        # Secret that gives access to a private docker registry
