@@ -172,6 +172,24 @@ After deplyoment test via external client::
   Request ID: c012cbf30dd3239f5d9c3b4b87683635
 
 
+Clean Up the lab
+----------------
+
+After finishing the lab, clean up the ingress services::
+
+   | **Show ingress service:**
+   |
+   | ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl get ingress
+   | NAME             CLASS    HOSTS   ADDRESS   PORTS   AGE
+   | singleingress1   <none>   *                 80      38s
+   | singleingress2   <none>   *                 80      16s
+   | singleingress3   <none>   *                 80      7s
+
+   | **Delete ingress services:**
+   |
+   | ubuntu@ip-10-1-1-4:~/k8s/ingress$ kubectl delete ingress singleingress1
+   | ingress.extensions "singleingress1" deleted
+   |
 
 
 .. toctree::
