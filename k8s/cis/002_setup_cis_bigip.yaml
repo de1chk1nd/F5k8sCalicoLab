@@ -45,7 +45,7 @@ spec:
             "--bigip-partition=kubernetes",
             "--pool-member-type=cluster",
             "--insecure=true",
-            "--deafult-ingress-ip=10.1.10.84",
+            "--default-ingress-ip=10.1.10.84",
             
             # for secure communication provide the internal ca certificates using config-map with below option and remove insecure parameter
             #"--trusted-certs-cfgmap=<namespace/configmap>",
